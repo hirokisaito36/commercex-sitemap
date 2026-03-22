@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CommerceX M&A — サイトマップ v3.0</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --purple:   #5B4FCF;
+  --purple-m: #7F77DD;
+  --purple-l: #EEEDFE;
+  --coral:    #D85A30;
+  --coral-l:  #FAECE7;
+  --teal:     #0F6E56;
+  --teal-l:   #E1F5EE;
+  --blue:     #185FA5;
+  --blue-l:   #E6F1FB;
+  --amber:    #BA7517;
+  --amber-l:  #FAEEDA;
+  --green:    #1D9E75;
+  --green-l:  #D4F0E5;
+  --gray:     #3D3D3A;
+  --gray-l:   #F1EFE8;
+  --gray-m:   #888780;
+  --line:     #D3D1C7;
+  --bg:       #F7F6F3;
+  --white:    #FFFFFF;
+  --text:     #1A1A18;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Noto Sans JP',sans-serif; background:var(--bg); color:var(--text); min-height:100vh; }
+
+/* ── HEADER ── */
+header {
+  background:var(--purple);
+  padding:18px 40px;
+  display:flex; align-items:center; justify-content:space-between;
+  position:sticky; top:0; z-index:100;
+  box-shadow:0 2px 16px rgba(91,79,207,.22);
+}
+.brand  { color:#fff; font-size:17px; font-weight:700; letter-spacing:.04em; }
+.tagline{ color:#AFA9EC; font-size:11px; font-weight:300; letter-spacing:.12em; font-family:'DM Mono',monospace; margin-top:2px; }
+.h-badge{ background:rgba(255,255,255,.14); color:#fff; font-size:11px; font-weight:500; padding:4px 14px; border-radius:20px; letter-spacing:.06em; }
+
+/* ── LEGEND ── */
+.legend {
+  display:flex; gap:14px; flex-wrap:wrap;
+  padding:10px 40px;
+  background:var(--white);
+  border-bottom:1px solid var(--line);
+}
+.leg { display:flex; align-items:center; gap:6px; font-size:10px; color:var(--gray-m); }
+.leg-dot { width:9px; height:9px; border-radius:2px; flex-shrink:0; }
+
+/* ── CANVAS ── */
+.canvas { padding:36px 28px 72px; overflow-x:auto; min-width:1240px; }
+.tree   { display:flex; flex-direction:column; align-items:center; }
+
+/* TOP node */
+.top-node {
+  background:var(--purple);
+  color:#fff;
+  border-radius:12px;
+  text-align:center;
+  box-shadow:0 4px 20px rgba(91,79,207,.28);
+  min-width:220px;
+  max-width:860px;
+  width:100%;
+  cursor:pointer;
+  transition:box-shadow .13s;
+  overflow:hidden;
+}
+.top-node:hover { box-shadow:0 6px 28px rgba(91,79,207,.36); }
+.top-header { padding:14px 52px; }
+.top-node .nt { font-size:15px; font-weight:700; letter-spacing:.04em; }
+.top-node .ns { font-size:10px; font-weight:300; opacity:.72; margin-top:3px; font-family:'DM Mono',monospace; letter-spacing:.06em; }
+.top-toggle { font-size:9px; font-weight:500; opacity:.45; padding:3px 0 6px; letter-spacing:.06em; font-family:'DM Mono',monospace; }
+/* TOP detail panel */
+.top-detail { display:none; text-align:left; border-top:1px solid rgba(255,255,255,.15); }
+.top-detail.open { display:block; }
+.top-sections { display:grid; grid-template-columns:repeat(3,1fr); gap:0; }
+.top-sec { padding:12px 14px; border-right:0.5px solid rgba(255,255,255,.1); }
+.top-sec:last-child { border-right:none; }
+.top-sec-num { display:inline-block; width:18px; height:18px; border-radius:50%; background:rgba(255,255,255,.2); text-align:center; line-height:18px; font-size:9px; font-weight:700; margin-bottom:5px; }
+.top-sec-title { font-size:11px; font-weight:700; margin-bottom:4px; opacity:.95; line-height:1.3; }
+.top-sec-badge { font-size:8px; font-weight:500; background:rgba(255,255,255,.18); padding:1px 6px; border-radius:3px; margin-left:4px; vertical-align:middle; }
+.top-sec-copy { font-size:10px; font-weight:500; background:rgba(255,255,255,.12); border-left:2px solid rgba(255,255,255,.4); padding:4px 7px; border-radius:0 4px 4px 0; margin:4px 0 6px; line-height:1.5; }
+.top-sec ul { list-style:none; padding:0; }
+.top-sec li { font-size:9.5px; line-height:1.6; padding-left:9px; position:relative; opacity:.82; }
+.top-sec li::before { content:''; position:absolute; left:0; top:6px; width:3px; height:3px; border-radius:50%; background:#fff; opacity:.5; }
+.top-sec li.sl { font-size:8.5px; font-weight:700; letter-spacing:.07em; opacity:.5; margin:6px 0 2px; padding-left:0; text-transform:uppercase; }
+.top-sec li.sl::before { display:none; }
+.top-sec li.highlight { opacity:1; font-weight:500; }
+/* bottom row for TOP detail */
+.top-bottom { padding:10px 14px; border-top:0.5px solid rgba(255,255,255,.1); display:flex; gap:8px; flex-wrap:wrap; }
+.top-flow-item { font-size:9px; font-weight:500; background:rgba(255,255,255,.12); padding:3px 10px; border-radius:12px; opacity:.88; }
+.top-flow-arr { font-size:9px; opacity:.4; align-self:center; }
+
+/* vertical stem */
+.vstem { width:2px; height:28px; background:var(--line); margin:0 auto; }
+
+/* bridge */
+.bridge-wrap { position:relative; width:100%; }
+.bridge { height:2px; background:var(--line); position:absolute; top:0; }
+
+/* L1 row */
+.l1-row { display:flex; justify-content:center; }
+
+/* L1 column */
+.l1-col { display:flex; flex-direction:column; align-items:center; flex:1; min-width:136px; max-width:155px; }
+.vstub  { width:2px; height:28px; }
+
+/* L1 NODE */
+.l1-node {
+  border-radius:10px;
+  width:136px;
+  cursor:pointer;
+  transition:transform .13s, box-shadow .13s;
+  overflow:hidden;
+  box-shadow:0 2px 8px rgba(0,0,0,.09);
+  position:relative;
+}
+.l1-node:hover { transform:translateY(-3px); box-shadow:0 8px 22px rgba(0,0,0,.15); }
+.l1-header { padding:11px 12px 9px; text-align:center; }
+.l1-title  { font-size:12px; font-weight:700; line-height:1.35; }
+.l1-role   { font-size:10px; font-weight:400; opacity:.72; margin-top:2px; }
+.l1-badge  { position:absolute; top:-1px; right:-1px; font-size:8px; font-weight:700; padding:2px 7px; border-radius:0 10px 0 6px; letter-spacing:.03em; }
+
+/* detail */
+.l1-detail { display:none; padding:0 11px 11px; border-top:1px solid rgba(255,255,255,.2); margin-top:3px; }
+.l1-detail.open { display:block; }
+.l1-detail ul { list-style:none; padding:0; }
+.l1-detail li { font-size:10px; line-height:1.55; padding:2px 0 2px 10px; position:relative; opacity:.88; }
+.l1-detail li::before { content:''; position:absolute; left:0; top:7px; width:4px; height:4px; border-radius:50%; background:currentColor; opacity:.45; }
+.l1-detail .sl { font-size:9px; font-weight:700; letter-spacing:.08em; opacity:.55; margin:7px 0 3px; text-transform:uppercase; padding-left:0; }
+.l1-detail .sl::before { display:none; }
+
+/* toggle hint */
+.th { font-size:9px; font-weight:500; text-align:center; padding:4px 0 6px; opacity:.45; letter-spacing:.05em; font-family:'DM Mono',monospace; }
+
+/* ── COLOR THEMES ── */
+/* M&A — purple */
+.col-about .l1-node  { background:var(--purple); color:#fff; }
+.col-about .vstub    { background:var(--purple); }
+
+/* 売却したい方 — coral */
+.col-sell .l1-node   { background:var(--coral); color:#fff; }
+.col-sell .vstub     { background:var(--coral); }
+.col-sell .l1-badge  { background:rgba(255,255,255,.22); color:#fff; }
+
+/* 買収したい方 — teal */
+.col-buy .l1-node    { background:var(--teal); color:#fff; }
+.col-buy .vstub      { background:var(--teal); }
+
+/* 案件情報 — blue */
+.col-deal .l1-node   { background:var(--blue); color:#fff; }
+.col-deal .vstub     { background:var(--blue); }
+
+/* 選ばれる理由 — purple-m */
+.col-why .l1-node    { background:var(--purple-m); color:#fff; }
+.col-why .vstub      { background:var(--purple-m); }
+
+/* 成功事例（将来） — amber dashed */
+.col-case .l1-node   { background:var(--white); color:var(--amber); border:1.5px dashed var(--amber); opacity:.82; }
+.col-case .vstub     { background:var(--amber); opacity:.4; }
+
+/* 会社情報 — gray */
+.col-co .l1-node     { background:var(--gray); color:#fff; }
+.col-co .vstub       { background:var(--gray); }
+
+/* 採用 — green */
+.col-hire .l1-node   { background:var(--green); color:#fff; }
+.col-hire .vstub     { background:var(--green); }
+
+/* お問い合わせ — coral outline */
+.col-contact .l1-node { background:var(--white); color:var(--coral); border:2px solid var(--coral); }
+.col-contact .vstub   { background:var(--coral); }
+
+/* ── CV ZONE ── */
+.cv-wrap  { margin-top:40px; width:100%; }
+.cv-label { text-align:center; font-size:10px; font-weight:500; color:var(--gray-m); letter-spacing:.1em; margin-bottom:10px; font-family:'DM Mono',monospace; }
+.cv-row   { display:flex; justify-content:center; gap:10px; flex-wrap:wrap; }
+.cv-card  { border-radius:10px; padding:11px 16px; min-width:162px; text-align:center; }
+.cv-w { font-size:9px; font-weight:700; letter-spacing:.1em; font-family:'DM Mono',monospace; margin-bottom:3px; }
+.cv-t { font-size:11px; font-weight:700; }
+.cv-s { font-size:10px; opacity:.68; margin-top:2px; }
+
+/* nurture */
+.nurture { margin:14px auto 0; max-width:720px; background:var(--white); border:1.5px dashed #AFA9EC; border-radius:10px; padding:11px 22px; display:flex; align-items:center; justify-content:center; gap:8px; flex-wrap:wrap; }
+.n-label { font-size:11px; font-weight:700; color:var(--purple); letter-spacing:.06em; }
+.n-pill  { background:var(--purple-l); color:var(--purple); font-size:10px; font-weight:500; padding:3px 11px; border-radius:20px; }
+.n-arr   { color:var(--gray-m); font-size:11px; }
+
+/* page summary */
+.page-summary { margin-top:28px; background:var(--white); border:1px solid var(--line); border-radius:10px; padding:14px 20px; display:flex; align-items:center; gap:16px; flex-wrap:wrap; justify-content:center; }
+.ps-item { text-align:center; }
+.ps-num  { font-size:20px; font-weight:700; color:var(--purple); }
+.ps-lbl  { font-size:9px; color:var(--gray-m); letter-spacing:.06em; margin-top:1px; }
+.ps-div  { width:1px; height:36px; background:var(--line); }
+.ps-pages{ font-size:10px; color:var(--gray-m); line-height:1.8; }
+.ps-future{ color:var(--amber); }
+
+/* footer */
+.foot { text-align:center; margin-top:32px; font-size:10px; color:var(--gray-m); font-family:'DM Mono',monospace; letter-spacing:.06em; }
+
+@media print {
+  header  { position:static; }
+  .canvas { padding:14px; min-width:auto; }
+  .l1-detail { display:block !important; }
+  .th { display:none; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <div class="brand">CommerceX M&amp;A</div>
+    <div class="tagline">見たことのない景色へ。</div>
+  </div>
+  <div class="h-badge">サイトマップ v4.1</div>
+</header>
+
+<div class="legend">
+  <div class="leg"><div class="leg-dot" style="background:var(--purple)"></div>M&A</div>
+  <div class="leg"><div class="leg-dot" style="background:var(--coral)"></div>売却したい方（最重要）</div>
+  <div class="leg"><div class="leg-dot" style="background:var(--teal)"></div>買収したい方</div>
+  <div class="leg"><div class="leg-dot" style="background:var(--blue)"></div>案件情報</div>
+  <div class="leg"><div class="leg-dot" style="background:var(--purple-m)"></div>選ばれる理由</div>
+  <div class="leg"><div class="leg-dot" style="background:var(--gray)"></div>会社情報</div>
+  <div class="leg"><div class="leg-dot" style="background:var(--green)"></div>採用</div>
+  <div class="leg"><div class="leg-dot" style="background:var(--coral);border-radius:50%"></div>お問い合わせ</div>
+  <div class="leg" style="margin-left:6px;font-style:italic">▼ 各ページをクリックで詳細を開閉</div>
+</div>
+
+<div class="canvas">
+<div class="tree">
+
+  <!-- TOP -->
+  <div class="top-node" onclick="toggleTop(this)">
+    <div class="top-header">
+      <div class="nt">TOP（ホーム）</div>
+      <div class="ns">3秒で価値を伝える / ペルソナ分岐 / 即相談CTA</div>
+    </div>
+    <div class="top-toggle">▼ ページ構成を見る</div>
+    <div class="top-detail">
+      <div class="top-sections">
+
+        <!-- S1〜S3 -->
+        <div class="top-sec">
+          <div class="top-sec-num">1</div>
+          <div class="top-sec-title">ファーストビュー <span class="top-sec-badge">最重要</span></div>
+          <ul>
+            <li class="highlight">メインコピー：「見たことのない景色へ。」</li>
+            <li>サブ：コマース業界のM&Aなら CommerceX M&A</li>
+            <li>ビジュアル：山・稜線・頂上（希望・挑戦）</li>
+            <li>CTA：「まず話だけ聞いてみる」を中央に1つだけ</li>
+          </ul>
+
+          <div style="margin-top:10px">
+          <div class="top-sec-num">2</div>
+          <div class="top-sec-title">権威性バー</div>
+          <ul>
+            <li class="highlight">コマース業界経験 10年以上の専門家集団</li>
+            <li class="highlight">M&A後ブランド売上 10倍成長の実績</li>
+            <li>※成約実績はこれからのため件数は掲載しない</li>
+            <li>実績が積み上がり次第「累計◯件」を追加</li>
+          </ul>
+          </div>
+
+          <div style="margin-top:10px">
+          <div class="top-sec-num">3</div>
+          <div class="top-sec-title">ペルソナ分岐</div>
+          <ul>
+            <li>左：売却したい方へ</li>
+            <li>後継者がいない / 売上頭打ち / 次の挑戦</li>
+            <li>右：買収したい方へ</li>
+            <li>EC参入 / 既存事業とシナジーを作りたい</li>
+          </ul>
+          </div>
+        </div>
+
+        <!-- S4〜S5（核心） -->
+        <div class="top-sec">
+          <div class="top-sec-num">4</div>
+          <div class="top-sec-title">チームストーリー <span class="top-sec-badge">最大の差別化</span></div>
+          <div class="top-sec-copy">「売った経験も、買って10倍にした経験も、このチームにあります。」</div>
+          <ul>
+            <li class="sl">左：齋藤浩喜（代表取締役）</li>
+            <li>EC事業を自ら売却しM&Aアドバイザーへ</li>
+            <li>売り手オーナーのリアルな経験を持つ</li>
+            <li class="sl">右：佐藤秀平（取締役）</li>
+            <li>CommerceX HD代表取締役</li>
+            <li>複数のコマースブランドを10倍以上に成長</li>
+            <li class="sl">2人をつなぐ一文</li>
+            <li class="highlight">2022年、齋藤が売却したコマースブランドを佐藤が買収・運営し売上10倍以上に成長。その二人が組んで生まれたのがCommerceX M&A</li>
+          </ul>
+
+          <div style="margin-top:10px">
+          <div class="top-sec-num">5</div>
+          <div class="top-sec-title">選ばれる3つの理由</div>
+          <ul>
+            <li>① コマース業界専門のECノウハウ</li>
+            <li>② 売り手・買い手・アドバイザー三役を経験</li>
+            <li>③ 着手金0円・完全成功報酬</li>
+            <li>末尾に「選ばれる理由をすべて見る →」</li>
+          </ul>
+          </div>
+        </div>
+
+        <!-- S6〜S9 -->
+        <div class="top-sec">
+          <div class="top-sec-num">6</div>
+          <div class="top-sec-title">最新案件情報（ノンネーム）</div>
+          <ul>
+            <li>案件情報ページの最新3件をカード形式でプレビュー</li>
+            <li>業種・規模感・特徴のみ（非名称）</li>
+            <li>「すべての案件を見る →」</li>
+            <li>ローンチ時は1〜2件でも掲載する</li>
+          </ul>
+
+          <div style="margin-top:10px">
+          <div class="top-sec-num">7</div>
+          <div class="top-sec-title">M&Aとは？（入口）</div>
+          <ul>
+            <li>3〜4行の概要のみ</li>
+            <li>「M&A詳しく見る →」へ誘導</li>
+            <li>ここで説明しすぎない</li>
+          </ul>
+          </div>
+
+          <div style="margin-top:10px">
+          <div class="top-sec-num">8</div>
+          <div class="top-sec-title">コラム・YouTube</div>
+          <ul>
+            <li>最新コラム2〜3件 ＋ YouTube最新動画1本</li>
+            <li>メルマガ・LINE登録CTAも同エリア</li>
+          </ul>
+          </div>
+
+          <div style="margin-top:10px">
+          <div class="top-sec-num">9</div>
+          <div class="top-sec-title">フッター直前CTA</div>
+          <ul>
+            <li>「まずは話を聞いてみてください」</li>
+            <li>「無料相談を予約する」「企業価値を試算する」</li>
+            <li>フローティングCTA：全ページ右下に常時表示</li>
+          </ul>
+          </div>
+        </div>
+
+      </div><!-- /top-sections -->
+
+      <!-- 流入経路 -->
+      <div class="top-bottom">
+        <span style="font-size:9px;opacity:.5;align-self:center;letter-spacing:.05em">流入別導線</span>
+        <span class="top-flow-item">SNS・YouTube → ①FV → ④チームストーリー → CTA</span>
+        <span class="top-flow-arr">／</span>
+        <span class="top-flow-item">LINE・メルマガ → ①②③ → 各ページへ分岐 → CTA</span>
+        <span class="top-flow-arr">／</span>
+        <span class="top-flow-item">SEO・初見 → ①〜⑥理解 → ⑦⑧ナーチャリング入り</span>
+      </div>
+
+    </div><!-- /top-detail -->
+  </div><!-- /top-node -->
+  <div class="vstem"></div>
+
+  <!-- bridge + L1 -->
+  <div class="bridge-wrap" id="bwrap">
+    <div class="bridge" id="bridge"></div>
+    <div class="l1-row" id="l1row">
+
+      <!-- M&A -->
+      <div class="l1-col col-about">
+        <div class="vstub"></div>
+        <div class="l1-node" onclick="toggle(this)">
+          <div class="l1-header">
+            <div class="l1-title">M&A</div>
+            <div class="l1-role">ミッション発信</div>
+          </div>
+          <div class="th">▼ 詳細</div>
+          <div class="l1-detail">
+            <ul>
+              <li class="sl">WHY・ミッション</li>
+              <li>コマース業界をM&Aで豊かにする</li>
+              <li>創業者の原体験・なぜやるか</li>
+              <li class="sl">教育コンテンツ</li>
+              <li>M&Aとは？（コマース業界特化）</li>
+              <li>成約までの流れ（5ステップ）</li>
+              <li>料金体系（累進レーマン方式）</li>
+              <li class="sl">コミュニティ（仮設置）</li>
+              <li>コマースM&Aサロン（準備中）</li>
+              <li>Exiter Club（準備中）</li>
+              <li class="sl">ページ末尾の導線</li>
+              <li>→ 売却したい方はこちら</li>
+              <li>→ 買収したい方はこちら</li>
+              <li>→ まず話だけ聞いてみる</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- 売却したい方 -->
+      <div class="l1-col col-sell">
+        <div class="vstub"></div>
+        <div class="l1-node" onclick="toggle(this)">
+          <div class="l1-badge">★最重要</div>
+          <div class="l1-header">
+            <div class="l1-title">売却したい方</div>
+            <div class="l1-role">譲渡検討の経営者</div>
+          </div>
+          <div class="th">▼ 詳細</div>
+          <div class="l1-detail">
+            <ul>
+              <li class="sl">FV — 得られる結果を先に提示</li>
+              <li>「あなたの事業を、正しい相手に託し、さらなる成長へ。」</li>
+              <li>着手金0円・完全秘密厳守・完全成功報酬</li>
+              <li class="sl">売り手が得られる結果3点</li>
+              <li>① 正しい企業価値で売れる</li>
+              <li>EC・小売業特有の指標で正確に算出</li>
+              <li>（リピート率・LTV・チャネル構成・ブランド力）</li>
+              <li>② 事業を成長させてくれる買い手に出会える</li>
+              <li>③ 売却後も事業が生き続ける（PMI支援）</li>
+              <li class="sl">なぜできるか — 選ばれる理由4点</li>
+              <li>① EC・小売業特有の企業評価ができる</li>
+              <li>② 売り手オーナー経験者がアドバイザー（齋藤）</li>
+              <li>③ 買収後10倍成長させた実績（佐藤）</li>
+              <li>④ 着手金0円・累進レーマン方式・最低500万</li>
+              <li class="sl">成約5ステップ（所要期間付き）</li>
+              <li>相談→算定→マッチング→面談→成約</li>
+              <li class="sl">EC・小売業特有のFAQ</li>
+              <li>EC・小売業特有の企業評価はどう行うか？</li>
+              <li>在庫・ブランド商標の扱い</li>
+              <li>テナント契約・仕入れ先の扱い</li>
+              <li>従業員はどうなる？</li>
+              <li class="sl">診断ツール＋CTA</li>
+              <li>企業価値シミュレーター</li>
+              <li>RECORE EC Checker（無料ブランド診断）</li>
+              <li>売却前のバリューアップ検討のきっかけに</li>
+              <li>無料相談フォーム（4項目・即日Calendly）</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- 買収したい方 -->
+      <div class="l1-col col-buy">
+        <div class="vstub"></div>
+        <div class="l1-node" onclick="toggle(this)">
+          <div class="l1-header">
+            <div class="l1-title">買収したい方</div>
+            <div class="l1-role">EC買収検討企業</div>
+          </div>
+          <div class="th">▼ 詳細</div>
+          <div class="l1-detail">
+            <ul>
+              <li class="sl">FV — 得られる結果を先に提示</li>
+              <li>「EC・小売事業を、買収して確実に成長させる。」</li>
+              <li>PMI支援まで一気通貫・コマース業界特化</li>
+              <li class="sl">買い手が得られる結果3点</li>
+              <li>① 精度の高い買収候補に出会える</li>
+              <li>② 買収後の成長まで伴走してもらえる</li>
+              <li>③「買収して10倍成長」のノウハウを使える</li>
+              <li class="sl">なぜできるか — 3つの根拠</li>
+              <li>① 大手M&A支援企業での買い手企業支援経験</li>
+              <li>齋藤：日本M&Aセンターでの買い手FA経験</li>
+              <li>② 実際に買収して10倍成長させた取締役が在籍</li>
+              <li>佐藤：CommerceX HDで複数ブランドを10倍成長</li>
+              <li>③ CommerceX HDグループのPMIリソース</li>
+              <li>そばに（ECコンサル・Amazon支援）</li>
+              <li>RECORE（小売DXシステム・400社導入）</li>
+              <li class="sl">教育コンテンツ</li>
+              <li>買収 vs 自社立ち上げ比較（★競合にない差別化）</li>
+              <li class="sl">案件・フロー</li>
+              <li>案件ティーザー（ノンネーム）</li>
+              <li>買収5ステップフロー</li>
+              <li>RECORE EC Checker（買収候補の事前診断）</li>
+              <li class="sl">CTA</li>
+              <li>買い手登録（4項目）</li>
+              <li>新着案件メール登録</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- 案件情報 -->
+      <div class="l1-col col-deal">
+        <div class="vstub"></div>
+        <div class="l1-node" onclick="toggle(this)">
+          <div class="l1-header">
+            <div class="l1-title">案件情報</div>
+            <div class="l1-role">買い手・売り手の接点</div>
+          </div>
+          <div class="th">▼ 詳細</div>
+          <div class="l1-detail">
+            <ul>
+              <li class="sl">掲載スタイル</li>
+              <li>ブログ形式で順次更新</li>
+              <li>ノンネーム情報を随時追加</li>
+              <li class="sl">掲載内容（1件あたり）</li>
+              <li>業種・EC種別・規模感</li>
+              <li>売上・利益の概算レンジ</li>
+              <li>事業の特徴・売却理由（匿名）</li>
+              <li>希望価格レンジ</li>
+              <li class="sl">詳細閲覧</li>
+              <li>NDA締結・問い合わせ後に開示</li>
+              <li class="sl">売り手向け導線</li>
+              <li>「掲載したい」→ お問い合わせへ</li>
+              <li class="sl">CTA</li>
+              <li>新着案件メール登録</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- 選ばれる理由 -->
+      <div class="l1-col col-why">
+        <div class="vstub"></div>
+        <div class="l1-node" onclick="toggle(this)">
+          <div class="l1-header">
+            <div class="l1-title">選ばれる理由</div>
+            <div class="l1-role">比較検討層向け</div>
+          </div>
+          <div class="th">▼ 詳細</div>
+          <div class="l1-detail">
+            <ul>
+              <li class="sl">創業ストーリー</li>
+              <li>齋藤（売り手）×佐藤（買い手）が組んだ唯一のM&A支援企業</li>
+              <li>PuttOUTのM&Aで出会い、共にCommerceX M&Aを設立</li>
+              <li class="sl">チームメンバー</li>
+              <li>齋藤浩喜（代表）：売り手・M&Aアドバイザー経験</li>
+              <li>佐藤秀平（取締役）：CommerceX HD代表・買収後10倍成長の実績</li>
+              <li class="sl">CommerceX HDグループ連携</li>
+              <li>株式会社そばに：ECコンサル・Amazon支援</li>
+              <li>株式会社RECORE：小売DXシステム（400社以上導入）</li>
+              <li>売り手のバリューアップ支援（売却前に企業価値を高める）</li>
+              <li>RECORE EC Checker：無料ブランド診断ツール</li>
+              <li>SNS・サイト・競合を横断分析し現在地を可視化</li>
+              <li>売却前の改善点発見→企業価値向上に活用</li>
+              <li>買い手のPMI支援（買収後の売上成長・DX化）</li>
+              <li class="sl">競合差別化マップ</li>
+              <li>3社比較（大手M&A支援・業界特化型・CommerceX）</li>
+              <li>比較表PDF出力（稟議用）</li>
+              <li class="sl">成功事例（将来追加）</li>
+              <li>業種・規模・課題別事例</li>
+              <li>お客様の声（社名非開示）</li>
+              <li>事例PDF出力（稟議用）</li>
+              <li class="sl">コミュニティ（仮設置）</li>
+              <li>コマースM&Aサロン（準備中）</li>
+              <li>Exiter Club（準備中）</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- 会社情報 -->
+      <div class="l1-col col-co">
+        <div class="vstub"></div>
+        <div class="l1-node" onclick="toggle(this)">
+          <div class="l1-header">
+            <div class="l1-title">会社情報</div>
+            <div class="l1-role">信頼の最終担保</div>
+          </div>
+          <div class="th">▼ 詳細</div>
+          <div class="l1-detail">
+            <ul>
+              <li class="sl">創業の背景・ストーリー</li>
+              <li>PuttOUTのM&Aで出会った二人が設立</li>
+              <li>売り手経験×買い手経験×M&Aアドバイザー経験</li>
+              <li class="sl">代表取締役：齋藤浩喜</li>
+              <li>EC独立→年商2.6億→売却→M&Aアドバイザー→独立</li>
+              <li>コマース業界のM&Aを変えるために創業</li>
+              <li class="sl">取締役：佐藤秀平</li>
+              <li>CommerceXホールディングス代表取締役</li>
+              <li>複数ブランドを買収・10倍以上成長させた実績</li>
+              <li>RECORE・そばに等のグループリソースを提供</li>
+              <li class="sl">グループ会社（CommerceX HD傘下）</li>
+              <li>株式会社そばに：ECコンサル・Amazon支援</li>
+              <li>株式会社RECORE：小売DXシステム400社以上</li>
+              <li>グループ連携で売り手の価値向上・買い手のPMIを支援</li>
+              <li class="sl">会社概要</li>
+              <li>CommerceX M&A株式会社</li>
+              <li>設立：2026年5月1日</li>
+              <li class="sl">企業理念</li>
+              <li>見たことのない景色へ。</li>
+              <li>コマース業界をM&Aで豊かにする</li>
+              <li class="sl">ブランド構造</li>
+              <li>CommerceX M&A（主力）</li>
+              <li>コマースM&Aサロン（将来）</li>
+              <li>Exiter Club（将来）</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- 採用 -->
+      <div class="l1-col col-hire">
+        <div class="vstub"></div>
+        <div class="l1-node" onclick="toggle(this)">
+          <div class="l1-badge" style="background:rgba(255,255,255,.22);color:#fff">NEW</div>
+          <div class="l1-header">
+            <div class="l1-title">採用</div>
+            <div class="l1-role">アドバイザー募集</div>
+          </div>
+          <div class="th">▼ 詳細</div>
+          <div class="l1-detail">
+            <ul>
+              <li class="sl">ポジション</li>
+              <li>コマースM&Aアドバイザー</li>
+              <li>業務委託・副業可</li>
+              <li class="sl">求める人物像</li>
+              <li>コマース業界経験者優遇</li>
+              <li>M&A業界経験者歓迎</li>
+              <li>経営者とフラットに話せる方</li>
+              <li class="sl">仕事内容</li>
+              <li>ソーシング〜クロージング</li>
+              <li>CommerceXの基盤を活用</li>
+              <li class="sl">CTA</li>
+              <li>カジュアル面談申込（3項目）</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- お問い合わせ -->
+      <div class="l1-col col-contact">
+        <div class="vstub"></div>
+        <div class="l1-node" onclick="toggle(this)">
+          <div class="l1-badge" style="background:var(--coral);color:#fff">NEW</div>
+          <div class="l1-header">
+            <div class="l1-title">お問い合わせ</div>
+            <div class="l1-role">CV統一窓口</div>
+          </div>
+          <div class="th">▼ 詳細</div>
+          <div class="l1-detail">
+            <ul>
+              <li class="sl">3種のフォーム</li>
+              <li>①売却相談（4項目）</li>
+              <li>②買い手登録（4項目）</li>
+              <li>③その他（3項目）</li>
+              <li class="sl">送信後の設計</li>
+              <li>即日Calendly表示</li>
+              <li>当日中に返信</li>
+              <li class="sl">EFO</li>
+              <li>リアルタイムバリデーション</li>
+              <li>スマホ最適化</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /l1-row -->
+  </div><!-- /bridge-wrap -->
+
+  <!-- CV ZONE -->
+  <div class="cv-wrap">
+    <div class="cv-label">▼ CV・ナーチャリング共通ゾーン（全ページから誘導）</div>
+    <div class="cv-row">
+      <div class="cv-card" style="background:var(--coral-l)">
+        <div class="cv-w" style="color:var(--coral)">重 CV</div>
+        <div class="cv-t" style="color:var(--coral)">無料相談・無料企業価値算定</div>
+        <div class="cv-s" style="color:var(--coral)">EFO：4項目 / 即日Calendly予約</div>
+      </div>
+      <div class="cv-card" style="background:var(--amber-l)">
+        <div class="cv-w" style="color:var(--amber)">軽 CV</div>
+        <div class="cv-t" style="color:var(--amber)">資料・ホワイトペーパーDL</div>
+        <div class="cv-s" style="color:var(--amber)">2項目 / 自動メールシーケンス</div>
+      </div>
+      <div class="cv-card" style="background:var(--teal-l)">
+        <div class="cv-w" style="color:var(--teal)">最軽 CV</div>
+        <div class="cv-t" style="color:var(--teal)">企業価値シミュレーター<br>RECORE EC Checker</div>
+        <div class="cv-s" style="color:var(--teal)">接触のきっかけ → 相談誘導</div>
+      </div>
+      <div class="cv-card" style="background:var(--purple-l)">
+        <div class="cv-w" style="color:var(--purple)">常時表示</div>
+        <div class="cv-t" style="color:var(--purple)">フローティングCTA</div>
+        <div class="cv-s" style="color:var(--purple)">無料相談 ＋ 資料DL</div>
+      </div>
+    </div>
+    <div class="nurture">
+      <span class="n-label">ナーチャリングループ</span>
+      <span class="n-pill">資料DL</span>
+      <span class="n-arr">→</span>
+      <span class="n-pill">自動メール</span>
+      <span class="n-arr">→</span>
+      <span class="n-pill">コラム / YouTube</span>
+      <span class="n-arr">→</span>
+      <span class="n-pill">温まったら相談へ</span>
+    </div>
+  </div>
+
+  <!-- PAGE SUMMARY -->
+  <div class="page-summary">
+    <div class="ps-item">
+      <div class="ps-num">8</div>
+      <div class="ps-lbl">ローンチ時</div>
+    </div>
+    <div class="ps-div"></div>
+    <div class="ps-pages">
+      TOP &nbsp;/&nbsp; M&A &nbsp;/&nbsp; 売却したい方 &nbsp;/&nbsp; 買収したい方 &nbsp;/&nbsp; 案件情報 &nbsp;/&nbsp; 選ばれる理由 &nbsp;/&nbsp; 会社情報 &nbsp;/&nbsp; 採用 &nbsp;/&nbsp; お問い合わせ<br>
+      <span class="ps-future">選ばれる理由 内に成功事例セクション（将来追加）/ コミュニティ（仮設置・準備中）</span>
+    </div>
+  </div>
+
+  <div class="foot">CommerceX M&amp;A — HP サイトマップ v4.1（確定版 / Brand DNA準拠）</div>
+
+</div><!-- /tree -->
+</div><!-- /canvas -->
+
+<script>
+function toggle(node) {
+  const detail = node.querySelector('.l1-detail');
+  const hint   = node.querySelector('.th');
+  const isOpen = detail.classList.contains('open');
+  detail.classList.toggle('open', !isOpen);
+  hint.textContent = isOpen ? '▼ 詳細' : '▲ 閉じる';
+}
+
+function toggleTop(node) {
+  const detail = node.querySelector('.top-detail');
+  const hint   = node.querySelector('.top-toggle');
+  const isOpen = detail.classList.contains('open');
+  detail.classList.toggle('open', !isOpen);
+  hint.textContent = isOpen ? '▼ ページ構成を見る' : '▲ 閉じる';
+}
+
+function drawBridge() {
+  const row    = document.getElementById('l1row');
+  const bwrap  = document.getElementById('bwrap');
+  const bridge = document.getElementById('bridge');
+  const cols   = row.querySelectorAll('.l1-col');
+  if (!cols.length) return;
+  const wrapRect  = bwrap.getBoundingClientRect();
+  const firstStub = cols[0].querySelector('.vstub').getBoundingClientRect();
+  const lastStub  = cols[cols.length-1].querySelector('.vstub').getBoundingClientRect();
+  bridge.style.left  = (firstStub.left + firstStub.width/2 - wrapRect.left) + 'px';
+  bridge.style.width = (lastStub.left + lastStub.width/2 - firstStub.left - firstStub.width/2) + 'px';
+}
+
+window.addEventListener('load',   drawBridge);
+window.addEventListener('resize', drawBridge);
+</script>
+</body>
+</html>
